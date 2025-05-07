@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 4: Calculadora Básica</h1>
+        <input type="number" id="num1" class="input" placeholder="Número 1">
+        <input type="number" id="num2" class="input" placeholder="Número 2">
+        <select id="operacao" class="input">
+            <option value="soma">Soma</option>
+            <option value="subtracao">Subtração</option>
+            <option value="multiplicacao">Multiplicação</option>
+            <option value="divisao">Divisão</option>
+        </select>
+        <button onclick="calcular()" class="btn">Calcular</button>
+        <p id="resultado"></p>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+    </div>
+
+    <script>
+        function calcular() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operacao = document.getElementById("operacao").value;
+            let resultado = document.getElementById("resultado");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado.innerHTML = "Por favor, insira números válidos.";
+                return;
+            }
+
+            let resultadoFinal;
+            if (operacao === "soma") {
+                resultadoFinal = num1 + num2;
+            } else if (operacao === "subtracao") {
+                resultadoFinal = num1 - num2;
+            } else if (operacao === "multiplicacao") {
+                resultadoFinal = num1 * num2;
+            } else if (operacao === "divisao") {
+                if (num2 === 0) {
+                    resultado.innerHTML = "Não é possível dividir por zero.";
+                    return;
+                }
+                resultadoFinal = num1 / num2;
+            }
+
+            resultado.innerHTML = "Resultado: " + resultadoFinal;
+        }
+    </script>
+</body>
+</html>

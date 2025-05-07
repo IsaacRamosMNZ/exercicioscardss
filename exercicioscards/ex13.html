@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas Aleatórias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 1px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 13: Gerador de Senhas Aleatórias</h1>
+        <input type="number" id="tamanho" class="input" placeholder="Tamanho da senha" min="4">
+        <button onclick="gerarSenha()" class="btn">Gerar Senha</button>
+        <div id="resultado" class="resultado"></div>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+    </div>
+
+    <script>
+        function gerarSenha() {
+            let tamanho = document.getElementById("tamanho").value;
+            if (tamanho < 4) {
+                document.getElementById("resultado").innerText = "A senha precisa ter pelo menos 4 caracteres.";
+                return;
+            }
+            
+            const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+            let senha = "";
+            for (let i = 0; i < tamanho; i++) {
+                senha += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+            }
+
+            document.getElementById("resultado").innerText = "Senha gerada: " + senha;
+        }
+    </script>
+</body>
+</html>

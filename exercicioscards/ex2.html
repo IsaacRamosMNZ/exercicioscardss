@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador com Passo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 2: Contador com Passo</h1>
+        <input type="number" id="inicio" class="input" placeholder="Número inicial">
+        <input type="number" id="final" class="input" placeholder="Número final">
+        <input type="number" id="passo" class="input" placeholder="Passo">
+        <button onclick="contar()" class="btn">Contar</button>
+        <p id="resultado"></p>
+        <a href="index.html" class="btn">Voltar para a Página Principal</a>
+    </div>
+
+    <script>
+        function contar() {
+            let inicio = document.getElementById("inicio").value;
+            let final = document.getElementById("final").value;
+            let passo = document.getElementById("passo").value;
+            let resultado = document.getElementById("resultado");
+
+            if (inicio === "" || final === "" || passo === "") {
+                resultado.innerHTML = "Preencha todos os campos!";
+                return;
+            }
+
+            let contagem = "";
+            for (let i = Number(inicio); i <= Number(final); i += Number(passo)) {
+                contagem += i + " ";
+            }
+
+            resultado.innerHTML = "Contagem: " + contagem;
+        }
+    </script>
+</body>
+</html>

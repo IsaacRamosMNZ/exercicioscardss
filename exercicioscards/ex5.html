@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 5: Verificador de Idade</h1>
+        <input type="number" id="anoNascimento" class="input" placeholder="Ano de Nascimento">
+        <button onclick="verificarIdade()" class="btn">Verificar Idade</button>
+        <p id="resultado"></p>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+    </div>
+
+    <script>
+        function verificarIdade() {
+            let anoNascimento = document.getElementById("anoNascimento").value;
+            let resultado = document.getElementById("resultado");
+
+            let anoAtual = new Date().getFullYear();
+            let idade = anoAtual - anoNascimento;
+
+            if (anoNascimento === "") {
+                resultado.innerHTML = "Por favor, insira seu ano de nascimento.";
+                return;
+            }
+
+            if (idade < 18) {
+                resultado.innerHTML = "Você é menor de idade.";
+            } else if (idade < 60) {
+                resultado.innerHTML = "Você é adulto.";
+            } else {
+                resultado.innerHTML = "Você é idoso.";
+            }
+        }
+    </script>
+</body>
+</html>

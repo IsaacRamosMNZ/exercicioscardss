@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Semáforo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .semáforo {
+            width: 110px;
+            height: 270px;
+            margin: 20px auto;
+            background-color: #333;
+            border-radius: 20px;
+            position: relative;
+        }
+        .luz {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 9: Simulador de Semáforo</h1>
+        <div class="semáforo">
+            <div id="vermelho" class="luz"></div>
+            <div id="amarelo" class="luz"></div>
+            <div id="verde" class="luz"></div>
+        </div>
+        <button class="btn" onclick="mudarSemaforo('vermelho')">Vermelho</button>
+        <button class="btn" onclick="mudarSemaforo('amarelo')">Amarelo</button>
+        <button class="btn" onclick="mudarSemaforo('verde')">Verde</button>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+    </div>
+
+    <script>
+        function mudarSemaforo(cor) {
+            document.getElementById("vermelho").style.backgroundColor = (cor === 'vermelho') ? 'red' : '#ccc';
+            document.getElementById("amarelo").style.backgroundColor = (cor === 'amarelo') ? 'yellow' : '#ccc';
+            document.getElementById("verde").style.backgroundColor = (cor === 'verde') ? 'green' : '#ccc';
+        }
+    </script>
+</body>
+</html>

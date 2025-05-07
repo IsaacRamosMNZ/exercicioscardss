@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Caixa Eletrônico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 11: Simulador de Caixa Eletrônico</h1>
+        <input type="number" id="valor" class="input" placeholder="Digite o valor desejado">
+        <button onclick="simularCaixa()" class="btn">Simular</button>
+        <div id="resultado" class="result"></div>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+    </div>
+
+    <script>
+        function simularCaixa() {
+            let valor = parseInt(document.getElementById("valor").value);
+            let resultado = document.getElementById("resultado");
+
+            if (isNaN(valor) || valor <= 0) {
+                resultado.innerHTML = "Por favor, insira um valor válido.";
+                return;
+            }
+
+            let notas100 = Math.floor(valor / 100);
+            valor %= 100;
+            let notas50 = Math.floor(valor / 50);
+            valor %= 50;
+            let notas10 = Math.floor(valor / 10);
+            valor %= 10;
+            let notas1 = valor;
+
+            resultado.innerHTML = `Notas de R$100: ${notas100} <br> 
+                                   Notas de R$50: ${notas50} <br> 
+                                   Notas de R$10: ${notas10} <br> 
+                                   Notas de R$1: ${notas1}`;
+        }
+    </script>
+</body>
+</html>

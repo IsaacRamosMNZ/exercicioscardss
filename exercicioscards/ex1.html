@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou Ímpar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 1: Par ou Ímpar</h1>
+        <input type="number" id="numero" class="input" placeholder="Digite um número">
+        <button onclick="verificarParOuImpar()" class="btn">Verificar</button>
+        <p id="resultado"></p>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+    </div>
+
+    <script>
+        function verificarParOuImpar() {
+            let numero = document.getElementById("numero").value;
+            let resultado = document.getElementById("resultado");
+
+            if (numero === "") {
+                resultado.innerHTML = "Por favor, digite um número!";
+                return;
+            }
+
+            if (numero % 2 === 0) {
+                resultado.innerHTML = "O número " + numero + " é PAR.";
+            } else {
+                resultado.innerHTML = "O número " + numero + " é ÍMPAR.";
+            }
+        }
+    </script>
+</body>
+</html>
